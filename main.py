@@ -7,6 +7,17 @@ def home():
     # Description
     st.write("This app allows you to input two stock tickers and a time frame to calculate the Pearson coefficient and visualize the stock prices.")
 
+    # Sub-heading for entering tickers
+    st.markdown("<h2 style='text-align: center;'>Enter Ticker</h2>", unsafe_allow_html=True)
+
+    # Text boxes for entering ticker symbols
+    col1, col2 = st.columns(2)
+    with col1:
+        ticker1 = st.text_input("Ticker 1", value='', max_chars=None, key=None, type='default', help=None, placeholder=None, on_change=None, args=None, kwargs=None)
+    with col2:
+        ticker2 = st.text_input("Ticker 2", value='', max_chars=None, key=None, type='default', help=None, placeholder=None, on_change=None, args=None, kwargs=None)
+
+
 def about():
     # About page content
     st.title("About")
