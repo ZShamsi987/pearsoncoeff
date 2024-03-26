@@ -13,10 +13,11 @@ def home():
     # Text boxes for entering ticker symbols
     col1, col2 = st.columns(2)
     with col1:
-        ticker1 = st.text_input("Ticker 1", value='', max_chars=None, key=None, type='default', help=None, placeholder=None, on_change=None, args=None, kwargs=None)
+        st.markdown("<p style='text-align: center;'>Ticker 1</p>", unsafe_allow_html=True)
+        ticker1 = st.text_input("", value='', max_chars=None, key=None, type='default', help=None, placeholder="Ex: AAPL", on_change=None, args=None, kwargs=None)
     with col2:
-        ticker2 = st.text_input("Ticker 2", value='', max_chars=None, key=None, type='default', help=None, placeholder=None, on_change=None, args=None, kwargs=None)
-
+        st.markdown("<p style='text-align: center;'>Ticker 2</p>", unsafe_allow_html=True)
+        ticker2 = st.text_input("", value='', max_chars=None, key=None, type='default', help=None, placeholder="Ex: MSFT", on_change=None, args=None, kwargs=None)
 
 def about():
     # About page content
