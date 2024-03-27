@@ -26,7 +26,7 @@ def home():
     col1, _, col3 = st.columns([1, 2, 1])  # Adjust column widths as needed
     with col1:
      st.write("")  # Create empty space to push button to center
-    with col3:
+    with col2:
      if st.button("Calculate", key="calculate_button"):
         st.write("Calculating...")  
 
