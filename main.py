@@ -34,7 +34,7 @@ def home():
     # Button to calculate
     with col2:
         if st.button("Calculate", key="calculate_button"):
-         st.write("Calculating...")
+         st.write("Processing data...")
          
 def about():
     # About page content
