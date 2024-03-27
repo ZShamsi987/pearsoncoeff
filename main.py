@@ -23,10 +23,11 @@ def home():
     selected_time_frame = st.selectbox("", options=time_frames, index=0, format_func=lambda x: x)
 
     # Button to calculate
-    st.markdown("<h3 style='text-align: center;'>Calculate</h3>", unsafe_allow_html=True)
-    if st.button("Calculate", key="calculate_button"):
-        # Your calculation logic here
-        st.write("Calculating...")
+    col3, _ = st.columns([2, 1])
+    with col3:
+        if st.button("Calculate", key="calculate_button"):
+            # Your calculation logic here
+            st.write("Calculating...")
 
 def about():
     # About page content
