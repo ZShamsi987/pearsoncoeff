@@ -25,7 +25,7 @@ def home():
     st.session_state.button_width = 200 
 
     # Calculate the amount of space needed for centering
-    space_width = st.session_state.button_width / 1
+    space_width = st.session_state.button_width / 0.1
 
     # Create empty space before the button for centering
     st.write("")
