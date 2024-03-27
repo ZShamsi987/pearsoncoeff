@@ -28,7 +28,7 @@ def home():
      st.write("")  # Create empty space to push button to center
     with col3:
      if st.button("Calculate", key="calculate_button"):
-        st.write("Calculating...")  
+        st.write("Processing data...")  
 
 def about():
     # About page content
