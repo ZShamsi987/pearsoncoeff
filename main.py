@@ -16,11 +16,17 @@ def home():
         ticker1 = st.text_input("Ticker 1", value='', max_chars=None, key=None, type='default', help=None, placeholder="Ex: AAPL", on_change=None, args=None, kwargs=None)
     with col2:
         ticker2 = st.text_input("Ticker 2", value='', max_chars=None, key=None, type='default', help=None, placeholder="Ex: MSFT", on_change=None, args=None, kwargs=None)
-        
+
     # Dropdown for selecting time frame
     st.markdown("<h3 style='text-align: center;'>Select Time Frame</h3>", unsafe_allow_html=True)
     time_frames = ["1D", "1W", "3M", "6M", "1Y", "All"]
     selected_time_frame = st.selectbox("", options=time_frames, index=0, format_func=lambda x: x)
+
+    # Button to calculate
+    st.markdown("<h3 style='text-align: center;'>Calculate</h3>", unsafe_allow_html=True)
+    if st.button("Calculate", key="calculate_button"):
+        # Your calculation logic here
+        st.write("Calculating...")
 
 def about():
     # About page content
