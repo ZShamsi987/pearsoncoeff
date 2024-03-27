@@ -22,13 +22,20 @@ def home():
     time_frames = ["1D", "1W", "3M", "6M", "1Y", "All"]
     selected_time_frame = st.selectbox("", options=time_frames, index=0, format_func=lambda x: x)
 
+    st.session_state.button_width = 200 
+
+    # Calculate the amount of space needed for centering
+    space_width = st.session_state.button_width / 4
+
+    # Create empty space before the button for centering
+    st.write("")
+    col1, col2, col3 = st.columns([space_width, st.session_state.button_width, space_width])
+
     # Button to calculate
-    col1, col2, col3, col4 = st.columns([1, 3, 3, 1])  
-    with col1:
-            st.write("")  # Create empty space to push button to center
-    with col3:
+    with col2:
         if st.button("Calculate", key="calculate_button"):
          st.write("Calculating...")
+         
 def about():
     # About page content
     st.title("About")
