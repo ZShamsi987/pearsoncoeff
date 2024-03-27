@@ -13,11 +13,9 @@ def home():
     # Text boxes for entering ticker symbols
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("<p style='text-align: center;'>Ticker 1</p>", unsafe_allow_html=True)
-        ticker1 = st.text_input(value='', max_chars=None, key=None, type='default', help=None, placeholder="Ex: AAPL", on_change=None, args=None, kwargs=None)
+        ticker1 = st.text_input("Ticker 1", value='', max_chars=None, key=None, type='default', help=None, placeholder="Ex: AAPL", on_change=None, args=None, kwargs=None)
     with col2:
-        st.markdown("<p style='text-align: center;'>Ticker 2</p>", unsafe_allow_html=True)
-        ticker2 = st.text_input(value='', max_chars=None, key=None, type='default', help=None, placeholder="Ex: MSFT", on_change=None, args=None, kwargs=None)
+        ticker2 = st.text_input("Ticker 2", value='', max_chars=None, key=None, type='default', help=None, placeholder="Ex: MSFT", on_change=None, args=None, kwargs=None)
         
     # Dropdown for selecting time frame
     st.markdown("<h3 style='text-align: center;'>Select Time Frame</h3>", unsafe_allow_html=True)
