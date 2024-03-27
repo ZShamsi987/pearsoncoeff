@@ -23,10 +23,12 @@ def home():
     selected_time_frame = st.selectbox("", options=time_frames, index=0, format_func=lambda x: x)
 
     # Button to calculate
-    col3, _ = st.columns([2, 1])
+    col1, _, col3 = st.columns([1, 2, 1])  # Adjust column widths as needed
+    with col1:
+     st.write("")  # Create empty space to push button to center
     with col3:
-        if st.button("Calculate", key="calculate_button"):
-            st.write("Calculating...")
+     if st.button("Calculate", key="calculate_button"):
+        st.write("Calculating...")  
 
 def about():
     # About page content
