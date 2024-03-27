@@ -24,8 +24,6 @@ def home():
 
     # Button to calculate
     col1, col2, col3, col4 = st.columns([1, 2, 2, 1])  
-    with col1:
-     st.write("")  # Create empty space to push button to center
     with col3:
      if st.button("Calculate", key="calculate_button"):
         st.write("Processing data...")  
