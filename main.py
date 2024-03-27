@@ -23,7 +23,7 @@ def home():
     selected_time_frame = st.selectbox("", options=time_frames, index=0, format_func=lambda x: x)
 
     # Button to calculate
-    col1, col2, col3, col4 = st.columns([1, 2, 2, 1])  
+    col1, col2, col3, col4 = st.columns([1, 3, 3, 1])  
     with col3:
      if st.button("Calculate", key="calculate_button"):
         st.write("Processing data...")  
