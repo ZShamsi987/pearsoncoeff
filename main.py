@@ -94,7 +94,6 @@ def about():
     st.write("-Custom time range")
     st.write("-Other statistical/quant elements")
     st.subheader("This app was written by [Zafir Shamsi](https://github.com/ZShamsi987)")
-    st.divider()
     st.write("")
     st.write("")
     st.caption("Send [feedback or report bugs](mailto:shamsizafir@gmail.com)")
