@@ -71,7 +71,11 @@ def home():
 def about():
     # About page content
     st.title("About")
-    st.write("This app is created by Zafir. It calculates the Pearson coefficient between two stock tickers based on the selected time frame and visualizes the stock prices.")
+    st.write("This app calculates the Pearson coefficient between two stock tickers based on the selected time frame and visualizes the stock prices.")
+    st.subheader("How does it work?")
+    st.write("Calculating the Pearson Coefficient uses the following formula:")
+    st.write("")
+    st.latex("$r=\frac{\sum\left(x-m_x\right)\left(y-m_y\right)}{\sqrt{\sum\left(x-m_x\right)^2 \sum\left(y-m_y\right)^2}}$")
 
 def main():
     # Set page title
