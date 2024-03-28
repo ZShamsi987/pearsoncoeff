@@ -1,6 +1,7 @@
 import streamlit as st
 import yfinance as yf
 import matplotlib.pyplot as plt
+from io import BytesIO
 import base64
 
 def home():
