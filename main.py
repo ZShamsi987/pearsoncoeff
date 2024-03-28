@@ -74,8 +74,8 @@ def about():
     st.write("This app calculates the Pearson coefficient between two stock tickers based on the selected time frame and visualizes the stock prices.")
     st.subheader("How does it work?")
     st.write("Calculating the Pearson Coefficient uses the following formula:")
-    st.write("")
-    st.latex(r"r = \frac{\sum (x - \bar{x})(y - \bar{y})}{\sqrt{\sum (x - \bar{x})^2 \sum (y - \bar{y})^2}}")
+    st.write("$$r = \\frac{\\sum (x - m_x)(y - m_y)}{\\sqrt{\\sum (x - m_x)^2 \\sum (y - m_y)^2}}$$")
+    st.write("''")
 
 def main():
     # Set page title
