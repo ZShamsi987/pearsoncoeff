@@ -57,7 +57,7 @@ def home():
 
     # Display Pearson coefficient in a styled box
     if 'coefficient' in locals():
-        st.info(f"The Pearson coefficient is: **{coefficient:.6f}**")
+        st.info(f"The Pearson coefficient is: **{coefficient:.60f}**")
 
 def about():
     # About page content
