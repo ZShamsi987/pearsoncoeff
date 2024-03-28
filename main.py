@@ -71,6 +71,7 @@ def home():
 def about():
     # About page content
     st.title("About")
+    st.subheader("This app was written by [Zafir Shamsi](https://github.com/ZShamsi987)")
     st.write("This app calculates the Pearson coefficient between two stock tickers based on the selected time frame and visualizes the stock prices.")
     
     st.subheader("How does it work?")   
@@ -93,7 +94,6 @@ def about():
     st.write("-Moving averages")
     st.write("-Custom time range")
     st.write("-Other statistical/quant elements")
-    st.subheader("This app was written by [Zafir Shamsi](https://github.com/ZShamsi987)")
     st.write("")
     st.write("")
     st.caption("Send [feedback or report bugs](mailto:shamsizafir@gmail.com)")
