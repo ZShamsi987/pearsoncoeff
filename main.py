@@ -43,7 +43,7 @@ def home():
          data2 = yf.download(ticker2, period=selected_time_frame.lower())
 
          # Plot data
-         plt.figure(figsize=(10, 6))
+         plt.figure(figsize=(30, 18))
          plt.plot(data1['Close'], label=ticker1, color='blue')
          plt.plot(data2['Close'], label=ticker2, color='red')
          plt.title('Stock Prices Over Time')
