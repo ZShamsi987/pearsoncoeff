@@ -96,13 +96,13 @@ def about():
 
     st.write("")
     st.write("")
-    st.write("Send [feedback or report bugs](mailto:shamsizafir@gmail.com)")
 
     st.subheader("This app was written by [Zafir Shamsi](https://github.com/ZShamsi987)")
 
     st.write("")
     st.write("")
     st.write("")
+    st.caption("Send [feedback or report bugs](mailto:shamsizafir@gmail.com)")
     st.caption("This app was heavily inspired by [this post](https://www.reddit.com/r/quant/comments/1bm28bx/i_did_a_comprehensive_correlation_analysis_on_all/) on r/quant")
 
 
