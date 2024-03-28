@@ -21,7 +21,7 @@ def home():
 
     # Dropdown for selecting time frame
     st.markdown("<h3 style='text-align: center;'>Select Time Frame</h3>", unsafe_allow_html=True)
-    time_frames = ["5d", "1mo", "3mo", "6mo", "1y", "ytd", "5y", "max"]
+    time_frames = ["1d", "5d", "1mo", "3mo", "6mo", "1y", "ytd", "5y", "max"]
     selected_time_frame = st.selectbox("", options=time_frames, index=0, format_func=lambda x: x)
 
     st.session_state.button_width = 200 
@@ -49,7 +49,7 @@ def home():
          plt.xlabel('Date')
          plt.ylabel('Price')
          plt.legend()
-         st.pyplot(plt, use_container_width=True)
+         st.pyplot(plt)
          
 def about():
     # About page content
