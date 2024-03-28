@@ -31,32 +31,36 @@ def home():
     # Calculate the amount of space needed for centering
     space_width = st.session_state.button_width / 0.4
 
+    # Container for button
+    button_container = st.container()
+
     # Button to calculate
-    st.write("")
-    col1, col2, col3 = st.columns([space_width, st.session_state.button_width, space_width])
-    with col2:
-        if st.button("Calculate", key="calculate_button", help="Click this button to calculate"):
-            # Fetch data
-            data1 = yf.download(ticker1, period=selected_time_frame.lower())
-            data2 = yf.download(ticker2, period=selected_time_frame.lower())
+    with button_container:
+        st.write("")
+        col1, col2, col3 = st.columns([space_width, st.session_state.button_width, space_width])
+        with col2:
+            if st.button("Calculate", key="calculate_button", help="Click this button to calculate"):
+                # Fetch data
+                data1 = yf.download(ticker1, period=selected_time_frame.lower())
+                data2 = yf.download(ticker2, period=selected_time_frame.lower())
 
-            # Plot data
-            fig, ax = plt.subplots(figsize=(12, 8))
-            ax.plot(data1['Close'], label=ticker1, color='blue')
-            ax.plot(data2['Close'], label=ticker2, color='red')
-            ax.set_title('Stock Prices Over Time')
-            ax.set_xlabel('Date')
-            ax.set_ylabel('Price')
-            ax.legend()
+                # Plot data
+                fig, ax = plt.subplots(figsize=(12, 8))
+                ax.plot(data1['Close'], label=ticker1, color='blue')
+                ax.plot(data2['Close'], label=ticker2, color='red')
+                ax.set_title('Stock Prices Over Time')
+                ax.set_xlabel('Date')
+                ax.set_ylabel('Price')
+                ax.legend()
 
-            # Convert plot to PNG image
-            img = BytesIO()
-            fig.savefig(img, format='png')
-            img.seek(0)
-            plot_url = base64.b64encode(img.read()).decode()
+                # Convert plot to PNG image
+                img = BytesIO()
+                fig.savefig(img, format='png')
+                img.seek(0)
+                plot_url = base64.b64encode(img.read()).decode()
 
-            # Embed HTML with CSS to control size
-            st.markdown(f'<div style="overflow-x:auto;"><img src="data:image/png;base64,{plot_url}" style="width: 100%; height: auto;"></div>', unsafe_allow_html=True)
+                # Embed HTML with CSS to control size
+                st.markdown(f'<div style="overflow-x:auto;"><img src="data:image/png;base64,{plot_url}" style="width: 100%; height: auto;"></div>', unsafe_allow_html=True)
 
 def about():
     # About page content
