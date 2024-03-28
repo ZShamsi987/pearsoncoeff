@@ -1,6 +1,7 @@
 import streamlit as st
 import yfinance as yf
 import matplotlib.pyplot as plt
+from scipy.stats import pearsonr
 
 def home():
     # Main title
@@ -37,20 +38,27 @@ def home():
     with col2:
         if st.button("Calculate", key="calculate_button"):
 
-         # Fetch data
-         data1 = yf.download(ticker1, period=selected_time_frame.lower())
-         data2 = yf.download(ticker2, period=selected_time_frame.lower())
+            # Fetch data
+            data1 = yf.download(ticker1, period=selected_time_frame.lower())
+            data2 = yf.download(ticker2, period=selected_time_frame.lower())
 
-         # Plot data
-         plt.figure(figsize=(10, 6))
-         plt.plot(data1['Close'], label=ticker1, color='blue')
-         plt.plot(data2['Close'], label=ticker2, color='red')
-         plt.title('Stock Prices Over Time')
-         plt.xlabel('Date')
-         plt.ylabel('Price')
-         plt.legend()
-         st.pyplot(plt)
-         
+            # Calculate Pearson coefficient
+            coefficient, _ = pearsonr(data1['Close'], data2['Close'])
+
+            # Plot data
+            plt.figure(figsize=(10, 6))
+            plt.plot(data1['Close'], label=ticker1, color='blue')
+            plt.plot(data2['Close'], label=ticker2, color='red')
+            plt.title('Stock Prices Over Time')
+            plt.xlabel('Date')
+            plt.ylabel('Price')
+            plt.legend()
+            st.pyplot(plt)
+
+            # Display Pearson coefficient in a styled box
+            st.markdown("<h3 style='text-align: center;'>Pearson Coefficient</h3>", unsafe_allow_html=True)
+            st.info(f"The Pearson coefficient is: **{coefficient:.4f}**")
+
 def about():
     # About page content
     st.title("About")
