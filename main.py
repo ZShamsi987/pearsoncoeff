@@ -61,6 +61,9 @@ def home():
 
     # Adding the two lines of text at the bottom
     st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
     st.write("NOTE: Check for normality before entering tickers")
     st.write("NOTE: To expand graph, hover over it and then click the maximize button")
 
