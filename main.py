@@ -93,7 +93,7 @@ def about():
     st.write("-Moving averages")
     st.write("-Custom time range")
     st.write("-Other statistical/quant elements")
-
+    st.divider()
     st.subheader("This app was written by [Zafir Shamsi](https://github.com/ZShamsi987)")
 
     st.write("")
