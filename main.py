@@ -1,6 +1,7 @@
 import streamlit as st
 import yfinance as yf
 import matplotlib.pyplot as plt
+import base64
 
 def home():
     # Main title
@@ -42,15 +43,23 @@ def home():
          data2 = yf.download(ticker2, period=selected_time_frame.lower())
 
          # Plot data
-         plt.figure(figsize=(10, 6))
-         plt.plot(data1['Close'], label=ticker1, color='blue')
-         plt.plot(data2['Close'], label=ticker2, color='red')
-         plt.title('Stock Prices Over Time')
-         plt.xlabel('Date')
-         plt.ylabel('Price')
-         plt.legend()
-         st.pyplot(plt)
-         
+         fig, ax = plt.subplots(figsize=(12, 8))
+         ax.plot(data1['Close'], label=ticker1, color='blue')
+         ax.plot(data2['Close'], label=ticker2, color='red')
+         ax.set_title('Stock Prices Over Time')
+         ax.set_xlabel('Date')
+         ax.set_ylabel('Price')
+         ax.legend()
+
+         # Convert plot to PNG image
+         img = BytesIO()
+         fig.savefig(img, format='png')
+         img.seek(0)
+         plot_url = base64.b64encode(img.read()).decode()
+
+         # Embed HTML with CSS to control size
+         st.markdown(f'<div style="overflow-x:auto;"><img src="data:image/png;base64,{plot_url}" style="width: 100%; height: auto;"></div>', unsafe_allow_html=True)
+
 def about():
     # About page content
     st.title("About")
