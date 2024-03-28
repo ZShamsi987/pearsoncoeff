@@ -1,8 +1,6 @@
 import streamlit as st
 import yfinance as yf
 import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
 
 def home():
     # Main title
@@ -15,37 +13,44 @@ def home():
     st.markdown("<h2 style='text-align: center;'>Enter Ticker</h2>", unsafe_allow_html=True)
 
     # Text boxes for entering ticker symbols
-    ticker1 = st.text_input("Ticker 1", value='', placeholder="Ex: AAPL")
-    ticker2 = st.text_input("Ticker 2", value='', placeholder="Ex: MSFT")
+    col1, col2 = st.columns(2)
+    with col1:
+        ticker1 = st.text_input("Ticker 1", value='', max_chars=None, key=None, type='default', help=None, placeholder="Ex: AAPL", on_change=None, args=None, kwargs=None)
+    with col2:
+        ticker2 = st.text_input("Ticker 2", value='', max_chars=None, key=None, type='default', help=None, placeholder="Ex: MSFT", on_change=None, args=None, kwargs=None)
 
     # Dropdown for selecting time frame
     st.markdown("<h3 style='text-align: center;'>Select Time Frame</h3>", unsafe_allow_html=True)
-    selected_time_frame = st.selectbox("Time Frame", options=["5d", "1mo", "3mo", "6mo", "1y", "ytd", "5y", "max"], index=0)
+    time_frames = ["5d", "1mo", "3mo", "6mo", "1y", "ytd", "5y", "max"]
+    selected_time_frame = st.selectbox("", options=time_frames, index=0, format_func=lambda x: x)
+
+    st.session_state.button_width = 200 
+
+    # Calculate the amount of space needed for centering
+    space_width = st.session_state.button_width / 0.4
+
+    # Create empty space before the button for centering
+    st.write("")
+    col1, col2, col3 = st.columns([space_width, st.session_state.button_width, space_width])
 
     # Button to calculate
-    if st.button("Calculate", help="Click this button to calculate"):
-        # Fetch data
-        data1 = yf.download(ticker1, period=selected_time_frame.lower())
-        data2 = yf.download(ticker2, period=selected_time_frame.lower())
+    with col2:
+        if st.button("Calculate", key="calculate_button"):
 
-        # Plot data
-        fig, ax = plt.subplots(figsize=(12, 8))
-        ax.plot(data1['Close'], label=ticker1, color='blue')
-        ax.plot(data2['Close'], label=ticker2, color='red')
-        ax.set_title('Stock Prices Over Time')
-        ax.set_xlabel('Date')
-        ax.set_ylabel('Price')
-        ax.legend()
+         # Fetch data
+         data1 = yf.download(ticker1, period=selected_time_frame.lower())
+         data2 = yf.download(ticker2, period=selected_time_frame.lower())
 
-        # Convert plot to PNG image
-        img = BytesIO()
-        fig.savefig(img, format='png')
-        img.seek(0)
-        plot_url = base64.b64encode(img.read()).decode()
-
-        # Display image
-        st.image(f"data:image/png;base64,{plot_url}", use_column_width=True)
-
+         # Plot data
+         plt.figure(figsize=(10, 6))
+         plt.plot(data1['Close'], label=ticker1, color='blue')
+         plt.plot(data2['Close'], label=ticker2, color='red')
+         plt.title('Stock Prices Over Time')
+         plt.xlabel('Date')
+         plt.ylabel('Price')
+         plt.legend()
+         st.pyplot(plt)
+         
 def about():
     # About page content
     st.title("About")
