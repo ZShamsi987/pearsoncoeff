@@ -98,7 +98,7 @@ def about():
     st.write("")
     st.write("Send [feedback or report bugs](mailto:shamsizafir@gmail.com)")
 
-    st.header("This app was written by [Zafir Shamsi](https://github.com/ZShamsi987)")
+    st.subheader("This app was written by [Zafir Shamsi](https://github.com/ZShamsi987)")
 
     st.write("")
     st.write("")
