@@ -55,9 +55,10 @@ def home():
             plt.legend()
             st.pyplot(plt)
 
-            # Display Pearson coefficient in a styled box
-            st.markdown("<h3 style='text-align: center;'>Pearson Coefficient</h3>", unsafe_allow_html=True)
-            st.info(f"The Pearson coefficient is: **{coefficient:.4f}**")
+    # Display Pearson coefficient in a styled box
+    if 'coefficient' in locals():
+        st.markdown("<h3 style='text-align: center;'>Pearson Coefficient</h3>", unsafe_allow_html=True)
+        st.info(f"The Pearson coefficient is: **{coefficient:.6f}**")
 
 def about():
     # About page content
