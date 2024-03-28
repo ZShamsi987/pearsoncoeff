@@ -37,22 +37,19 @@ def home():
     with col2:
         if st.button("Calculate", key="calculate_button"):
 
-            # Fetch data
-            try:
-                data1 = yf.download(ticker1, period=selected_time_frame.lower())
-                data2 = yf.download(ticker2, period=selected_time_frame.lower())
+         # Fetch data
+         data1 = yf.download(ticker1, period=selected_time_frame.lower())
+         data2 = yf.download(ticker2, period=selected_time_frame.lower())
 
-                # Plot data
-                plt.figure(figsize=(10, 6))
-                plt.plot(data1['Close'], label=ticker1, color='blue')
-                plt.plot(data2['Close'], label=ticker2, color='red')
-                plt.title('Stock Prices Over Time')
-                plt.xlabel('Date')
-                plt.ylabel('Price')
-                plt.legend()
-                st.pyplot(plt)
-            except Exception as e:
-                st.write(f"Error fetching data: {e}")
+         # Plot data
+         plt.figure(figsize=(10, 6))
+         plt.plot(data1['Close'], label=ticker1, color='blue')
+         plt.plot(data2['Close'], label=ticker2, color='red')
+         plt.title('Stock Prices Over Time')
+         plt.xlabel('Date')
+         plt.ylabel('Price')
+         plt.legend()
+         st.pyplot(plt)
          
 def about():
     # About page content
