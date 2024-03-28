@@ -59,7 +59,7 @@ def home():
          plot_url = base64.b64encode(img.read()).decode()
 
          # Embed HTML with CSS to control size
-         st.markdown(f'<div style="overflow-x:auto;"><img src="data:image/png;base64,{plot_url}" style="width: 500%; height: 500%;"></div>', unsafe_allow_html=True)
+         st.markdown(f'<div style="overflow-x:auto;"><img src="data:image/png;base64,{plot_url}" style="width: 1000%; height: 500%;"></div>', unsafe_allow_html=True)
 
 def about():
     # About page content
