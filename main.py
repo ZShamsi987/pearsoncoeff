@@ -75,7 +75,7 @@ def about():
     st.subheader("How does it work?")
     st.write("Calculating the Pearson Coefficient uses the following formula:")
     st.write("")
-    st.latex("$r=\frac{\sum\left(x-m_x\right)\left(y-m_y\right)}{\sqrt{\sum\left(x-m_x\right)^2 \sum\left(y-m_y\right)^2}}$")
+    st.latex("r=\frac{\sum\left(x-m_x\right)\left(y-m_y\right)}{\sqrt{\sum\left(x-m_x\right)^2 \sum\left(y-m_y\right)^2}}")
 
 def main():
     # Set page title
