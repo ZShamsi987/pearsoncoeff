@@ -49,7 +49,7 @@ def home():
             plt.figure(figsize=(10, 6))
             plt.plot(data1['Close'], label=ticker1, color='blue')
             plt.plot(data2['Close'], label=ticker2, color='red')
-            plt.title('Stock Prices Over Time')
+            plt.title('Closing Stock Prices Over Time')
             plt.xlabel('Date')
             plt.ylabel('Price')
             plt.legend()
@@ -57,7 +57,7 @@ def home():
 
     # Display Pearson coefficient in a styled box
     if 'coefficient' in locals():
-        st.info(f"The Pearson coefficient is: **{coefficient:.50f}**")
+        st.info(f"The Pearson coefficient is: **{coefficient:.55f}**")
 
 def about():
     # About page content
