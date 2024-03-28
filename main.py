@@ -72,6 +72,7 @@ def about():
     # About page content
     st.title("About")
     st.write("This app calculates the Pearson coefficient between two stock tickers based on the selected time frame and visualizes the stock prices.")
+    
     st.subheader("How does it work?")   
     st.write("The Pearson correlation coefficient (r) is a measure of the linear relationship between two variables, typically denoted as $x$ and $y$. The formula to calculate $r$ is:")
     st.write("$$r = \\frac{\\sum (x - m_x)(y - m_y)}{\\sqrt{\\sum (x - m_x)^2 \\sum (y - m_y)^2}}$$")
@@ -79,11 +80,32 @@ def about():
     st.write("- $x$ and $y$ are the variables being analyzed,")
     st.write("- $m_x$ and $m_y$ represent the means (average values) of variables $x$ and $y$, respectively, and")
     st.write("- $\\sum$ denotes the summation across all data points.")
-
     st.write("The Pearson correlation coefficient $r$ measures the strength and direction of the linear relationship between $x$ and $y$. It ranges from -1 to 1:")
     st.write("- $r = 1$ indicates a perfect positive linear relationship, where $y$ increases as $x$ increases.")
     st.write("- $r = -1$ indicates a perfect negative linear relationship, where $y$ decreases as $x$ increases.")
     st.write("- $r = 0$ indicates no linear relationship between $x$ and $y$.")
+
+    st.subheader("Coming soon:")
+    st.write("Below are some features I would like to eventually add to this app(or another app in the future)/noticed would be helpful")
+    st.write("-1 day graph and coeffecient")
+    st.write("-Nicer/interactive graph")
+    st.write("-More securities and commodities from other markets")
+    st.write("-Moving averages")
+    st.write("-Custom time range")
+    st.write("-Other statistical/quant elements")
+
+    st.write("")
+    st.write("")
+    st.write("Send [feedback or report bugs](mailto:shamsizafir@gmail.com)")
+
+    st.header("This app was written by [Zafir Shamsi](https://github.com/ZShamsi987)")
+
+    st.write("")
+    st.write("")
+    st.write("")
+    st.caption("This app was heavily inspired by [this post](https://www.reddit.com/r/quant/comments/1bm28bx/i_did_a_comprehensive_correlation_analysis_on_all/) on r/quant")
+
+
 
 def main():
     # Set page title
