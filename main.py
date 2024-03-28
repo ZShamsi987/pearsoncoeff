@@ -49,7 +49,7 @@ def home():
          plt.xlabel('Date')
          plt.ylabel('Price')
          plt.legend()
-         st.pyplot(plt)
+         st.pyplot(plt, use_container_width=True)
          
 def about():
     # About page content
